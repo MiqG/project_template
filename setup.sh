@@ -5,3 +5,6 @@ conda env create -f envs/main.yml
 mkdir -p data/raw/{private,public}
 mkdir -p data/prep/clean
 mkdir -p results/{files,plots}
+
+# remove this remote to create yours
+git remote remove origin

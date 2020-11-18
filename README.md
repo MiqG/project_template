@@ -15,6 +15,7 @@ This is a personal way of structuring projects built through observation and per
     - `src`: project-specific modules.
 
 The typical workflow using this project structure consists of:
+
 0. Modifying `config.yml` to add the paths to the data we want to download or copy to the project.
 1. Modifying `config.*` modules in the project `src/` to access the data through our scripts.
 2. Download, preprocess and analyze data at `scripts/` saving the outputs at `data/raw/*`, `data/prep/*` and `results/files`, respectively. Remember to write down the modules you use at `envs/main.yml` or in a new conda environment.

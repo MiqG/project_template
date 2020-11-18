@@ -9,7 +9,7 @@ This is a personal way of structuring projects built through observation and per
     - `envs`: conda environments to run the main project and, if necessary, create more.
     - `.gitignore`: avoid commiting useless files.
     - `LICENSE`
-    - `reports`: discuss your insights with a project webpage created with `jupyter-book`
+    - `reports`: discuss your insights with a project [webpage](https://miqg.github.io/project_template/intro.html) created with `jupyter-book`
     - `results`: store files and final plots.
     - `scripts`: to maintain a reproducible project pipeline.
     - `src`: project-specific modules.

@@ -2,7 +2,7 @@ title: "My Project's Title"
 author: "M A G"
 logo: images/logo.png
 
-exclude_patterns: [_build, "**.ipynb_checkpoints"] # to speed up jupyter-book's build
+exclude_patterns: [_build, "**README**", "**.ipynb_checkpoints"] # to speed up jupyter-book's build
 execute:
   execute_notebooks: "off"
   

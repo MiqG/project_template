@@ -30,11 +30,11 @@ The typical workflow using this project structure consists of:
 ## Installation
 ```shell
 # clone repository
-git clone
+git clone https://github.com/MiqG/project_template
 cd project_template
-# create project environment
-## modify project name in 'envs/main.yml'
-conda env create -f envs/main.yml
+# create project environment and directories with large files (data, results)
+## NOTE: modify project name in 'envs/main.yml'
+bash setup.sh
 ```
 
 ## Structure

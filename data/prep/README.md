@@ -1,6 +1,3 @@
-# Clean data
+# Preprocessed data
 
-Here we find clean data that was processed through the following steps:
-1. remove incomplete data
-2. ...
-
+Here we place files that have been prepared and cleaned for efficient data analysis. For example, after selecting important information or imputing missing values.

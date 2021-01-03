@@ -32,9 +32,8 @@ The typical workflow using this project structure consists of:
 # clone repository
 git clone https://github.com/MiqG/project_template
 cd project_template
-# create project environment and directories with large files (data, results)
-## NOTE: modify project name in 'envs/main.yml'
-bash setup.sh
+# remove git remote and rename 'project_name'
+bash start_project.sh -n project_name
 ```
 
 ## Structure

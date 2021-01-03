@@ -6,7 +6,7 @@ To guarantee reproducibility, the scripts should perform these tasks:
 
 0. *data download or obtention*
     - inputs: paths or urls to data.
-    - outputs: save to `data/raw/public/dataset_name` or `data/raw/private/dataset_name`.
+    - outputs: save to `data/raw/*/dataset_name`.
 1. *data preprocessing* (e.g. cleaning)
     - inputs: files from `data/raw/*`.
     - outputs: save to `data/prep/prep_method`.

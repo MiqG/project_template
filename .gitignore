@@ -1,18 +1,3 @@
-# ignore folders that will be populated through scripts
-!data/
-data/raw/private/*
-data/raw/public/*
-!data/raw/private/README.md
-!data/raw/public/README.md
-data/prep/*
-!data/prep/README.md
-
-!results/
-results/files/*
-!results/files/README.md
-results/plots/*
-!results/plots/README.md
-
 # Created by https://www.toptal.com/developers/gitignore/api/python,r
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,r
 

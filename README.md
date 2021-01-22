@@ -1,39 +1,56 @@
 # Data Science Project Template
 
 This is a personal way of structuring projects built through observation and personal experience that helped me planning and scaling up without getting lost.
+```shell
+.
+├── config.yml
+├── data
+├── envs
+├── LICENSE
+├── README.md
+├── reports
+├── results
+├── src
+├── start_project.sh
+└── workflows
+```
 
-## Usage
-- Basic structure:
-    - `config.yml`: Thought for data uptake essentially; hand-curated list of external files and paramenters required for the project.
-    - `data`: keep raw and preprocessed data organized.  
-    - `envs`: conda environments to run the main project and, if necessary, create more.
-    - `.gitignore`: avoid commiting useless files.
-    - `LICENSE`
-    - `reports`: discuss your insights with a project [webpage](https://miqg.github.io/project_template/intro.html) created with `jupyter-book`
-    - `results`: store files and final plots.
-    - `scripts`: to maintain a reproducible project pipeline.
-    - `src`: project-specific modules.
+## Rationale
+- `config.yml`: hand-curated list of external files and parameters required for the project.
+- `data`: keep raw and preprocessed data organized.  
+- `envs`: conda environments to run the main project and, if necessary, create more.
+- `LICENSE`
+- `reports`: discuss your insights with a project [webpage](https://miqg.github.io/project_template/intro.html) created with `jupyter-book`.
+- `results`: store files and final plots for every experiment.
+- `src`: project modules.
+- `workflows`: to download, preprocess, and analyze your data.
 
-The typical workflow using this project structure consists of:
 
-0. Modifying `config.yml` to add the paths to the data we want to download or copy to the project.
-1. Modifying `config.*` modules in the project `src/` to access the data through our scripts.
-2. Download, preprocess and analyze data at `scripts/` saving the outputs at `data/raw/*`, `data/prep/*` and `results/files`, respectively. Remember to write down the modules you use at `envs/main.yml` or in a new conda environment.
-3. Inspect and explore results creating jupyter notebooks at `reports/notebooks/` that can be rendered into static webpages with [`jupyter-book`](https://jupyterbook.org/intro.html). Structure your project's book by modifying `reports/_toc.yml`.
-4. Write scripts to create the final plots illustrating your conclusions and save them at `results/files`.
+## Typical workflow
+1. Modify `config.yml` to your taste adding variables that could be useful project-wide.
+2. Create the workflows to download and preprocess your project's data at `workflows/download/` and `workflows/preprocess`, respectively. Make sure to distinguish between code that can be used project-wide -place it in the project's modules in `src/` and call the functions in your workflow-; or code that is only used specifically for that part of the project -place it in your workflow's `scripts/` subdirectory-.
+3. Now, you can analyse your data creating different experiments as subdirectories of `workflows/analyses` that will get inputs from `data/` and will output at `results/your_experiment_name/`.
+4. Commit your work, and consider adding README files.
+5. Inspect and explore results creating jupyter notebooks at `reports/notebooks/` that can be rendered into static webpages with [`jupyter-book`](https://jupyterbook.org/intro.html). Structure your project's book by modifying `reports/_toc.yml`.
     
-## Requirements
-- conda v4.9
-- python >= 3
-- R
+
+## Requirements (for this use case)
+- an environment manager: e.g. conda
+- a workflow manager: e.g. snakemake
+- (optional) a webpage builder: e.g. jupyter-book
+
 
 ## Installation
 ```shell
 # clone repository
 git clone https://github.com/MiqG/project_template
 cd project_template
-# remove git remote and rename 'project_name'
-bash start_project.sh -n project_name
+
+# removes git remote
+bash start_project.sh
+
+# remove start_project.sh
+rm start_project.sh
 ```
 
 ## Structure
@@ -42,39 +59,64 @@ bash start_project.sh -n project_name
 ├── config.yml
 ├── data
 │   ├── prep
-│   │   └── clean
-│   │       └── README.md
-│   └── raw
-│       ├── private
-│       │   └── README.md
-│       └── public
-│           └── README.md
+│   ├── raw
+│   └── references
 ├── envs
 │   └── main.yml
-├── .gitignore
 ├── LICENSE
+├── README.md
 ├── reports
 │   ├── _config.yml
+│   ├── images
+│   │   └── logo.png
 │   ├── notebooks
 │   │   ├── example_notebook.md
+│   │   ├── intro.md
 │   │   └── README.md
 │   ├── README.md
 │   └── _toc.yml
 ├── results
-│   ├── files
-│   │   └── README.md
-│   └── plots
-│       └── README.md
-├── scripts
+│   ├── new_experiment
+│   │   ├── files
+│   │   │   └── output_example.tsv
+│   │   └── plots
+│   │       └── output_example.pdf
 │   └── README.md
-└── src
-    ├── python
-    │   ├── project_name
-    │   │   └── config.py
-    │   └── setup.py
-    └── R
-        └── project_name
-            └── config.R
+├── src
+│   └── python
+│       ├── setup.py
+│       └── your_project_name
+│           └── config.py
+├── start_project.sh
+└── workflows
+    ├── analyses
+    │   └── new_experiment
+    │       ├── README.md
+    │       ├── run_all.sh
+    │       ├── scripts
+    │       │   └── workflow_step.py
+    │       └── snakefile
+    ├── download
+    │   ├── README.md
+    │   ├── run_all.sh
+    │   ├── scripts
+    │   │   └── workflow_step.py
+    │   └── snakefile
+    ├── preprocess
+    │   ├── README.md
+    │   ├── run_all.sh
+    │   ├── scripts
+    │   │   └── workflow_step.py
+    │   └── snakefile
+    └── README.md
 ```
+
+## References
+- Buffalo, V. (2015). Bioinformatics data skills: Reproducible and robust research with open source tools. " O'Reilly Media, Inc.". [link](https://www.oreilly.com/library/view/bioinformatics-data-skills/9781449367480/)
+- Noble WS (2009) A Quick Guide to Organizing Computational Biology Projects. PLoS Comput Biol 5(7): e1000424. [https://doi.org/10.1371/journal.pcbi.1000424](https://doi.org/10.1371/journal.pcbi.1000424)
+- [Eric Ma - Principled Data Science Workflows](https://www.youtube.com/watch?v=Dx2vG6qmtPs&ab_channel=PyData)
+- [Pat Schloss - Riffomonas Project](https://www.youtube.com/channel/UCGuktEl5InrcxPfCjmPWxsA)
+
+
 
 Have fun!

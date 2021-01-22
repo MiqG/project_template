@@ -1,22 +1,4 @@
-# Here we list the names of files available to access them easily in our scripts
+# Here we can create project-wide variables to access them from anywhere
 
-- data:
-  - raw:
-    - public:
-      - readme: README.md
-
-    - private:
-      - readme: README.md
-  - prep:
-    - clean:
-      - readme: README.md
-
-- reports:
-  - notebooks:
-    - readme: README.md
-
-- results:
-  - files:
-    - readme: README.md
-  - plots:
-    - readme: README.md
+- variables:
+    - species: Homo sapiens

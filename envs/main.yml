@@ -1,8 +1,10 @@
-name: project_name
+name: your_project_name # change this
+
 channels:
   - bioconda
   - conda-forge
   - anaconda
+
 dependencies:
   # python general
   - pandas
@@ -23,4 +25,5 @@ dependencies:
   - bioconductor-clusterProfiler
 
 variables:
+  # environment variables
   - SRC_R: src/R/project_name
